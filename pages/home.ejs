@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include ("../partials/header") %>
+  <link href="/stylesheets/home.css" rel="stylesheet">
+</head>
+
+
+<body>
+  
+
+
+<div class='d-grid gap-3'>
+  <br>
+  <h1 class='text-center '>CHS 2022 Class Matcher</h1>
+  <p class='text-center '>Enter both the class and its number</p>
+  <form method="POST" action="/">
+    <div class="mb-3 mx-auto normalwidth" >
+      <label for="fullname" class='form-label p-2'>Name</label><br>
+      <input type="text" class='form-control p-2' name="fullname" />
+    </div>
+
+    <%-include("../partials/subjects", {num:"1",subjects:subjects}) %>
+    <%-include("../partials/subjects", {num:"2",subjects:subjects}) %>
+    <%-include("../partials/subjects", {num:"3",subjects:subjects}) %>
+    <%-include("../partials/subjects", {num:"4",subjects:subjects}) %>
+    <%-include("../partials/subjects", {num:"5",subjects:subjects}) %>
+    <%-include("../partials/subjects", {num:"6a",subjects:subjects}) %>
+    <%-include("../partials/subjects", {num:"6b",subjects:subjects}) %>
+
+
+    <div class="mb-3 mx-auto buttonwidth" >
+      <input class="btn btn-primary form-control p-2" type="submit" />
+    </div>
+    <div class="mb-3 mx-auto buttonwidth" >
+      <a type="button" class="btn btn-outline-secondary form-control p-2" href="/db">Logged in previously / Guest</a>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>

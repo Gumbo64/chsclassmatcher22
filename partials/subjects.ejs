@@ -1,0 +1,12 @@
+<div class=" mb-3 mx-auto normalwidth" >   
+    <label class='form-label p-2' for="english">Line <%- num %></label><br>
+    <div class="input-group">
+      <select class='form-control p-2 col-md-6' name="subjects">
+        <option value="none"></option>
+        <% for(var i=0; i<subjects.length; i++) {%>
+            <option value="<%= subjects[i] %>"><%= subjects[i] %></option>
+         <% } %>
+      </select>
+      <input class='form-control p-2 col-md-6 smaller' type="number" value=0 name="numbers" min=0 max=9>
+    </div>
+  </div>

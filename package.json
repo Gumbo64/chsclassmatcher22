@@ -1,0 +1,27 @@
+{
+  "name": "chsclassmatcher22",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gumbo64/chsclassmatcher22.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gumbo64/chsclassmatcher22/issues"
+  },
+  "homepage": "https://github.com/Gumbo64/chsclassmatcher22#readme",
+  "dependencies": {
+    "bad-words": "^3.0.4",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "mongodb": "^4.2.2",
+    "random-id": "^1.0.4",
+    "serve-favicon": "^2.5.0"
+  }
+}
