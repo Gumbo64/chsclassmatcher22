@@ -12,7 +12,7 @@ var Filter = require('bad-words'),
 
 const app = express()
 const PORT = process.env.PORT || 5000
-const password = process.env.MONGO_PASSWORD || "lnCumVSBXywLUkes"
+const password = process.env.MONGO_PASSWORD || "password"
 const uri = "mongodb+srv://heroku:" + password + "@chsclassmatcher.mpdh6.mongodb.net/chsclassmatcher?retryWrites=true&w=majority";
 
 
@@ -49,8 +49,11 @@ app.post('/', async (req, res) => {
     user = req.body
     user.id = randomId(5)
     console.log(user)
+    console.log(subjectcheck(user.subjects))
+    console.log(numbercheck(user.numbers))
     if (subjectcheck(user.subjects) && numbercheck(user.numbers)){
-        client.connect(err => {
+        console.log("a")
+        await client.connect(async err => {
             const statesDB = client.db("chsclassmatcher").collection("2022");
             const entry = {
                 userID:user.id,
@@ -58,11 +61,13 @@ app.post('/', async (req, res) => {
                 subjects:user.subjects,
                 numbers:user.numbers
             }
-            // console.log("entry")
-            // console.log(entry)
-            const result = statesDB.insertOne(entry);
+            console.log("entry")
+            console.log(entry)
+            const result = await statesDB.insertOne(entry);
         });
     }
+    res.cookie("id",user.id)
+    res.render('pages/db')
 
 })
 
@@ -82,7 +87,7 @@ function numbercheck(e){
         return false
     }
     for(i=0;i<e.length;i++){
-        if (!validnumbers.includes(e[i])){
+        if (!validnumbers.includes(parseInt(e[i]))){
             return false
         }
     }

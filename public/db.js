@@ -1,22 +1,26 @@
-function similarity(x){
+function similarity(x,userdata){
+    var myID = Cookies.get("id")
     if(typeof myID === 'undefined'){
         return 0
     }
-    var y = data[myID]["subjects"].map(function(e,i){
-        return e.toString() + data[myID]["numbers"][i].toString()  
+
+    let y = userdata.find((e)=>{return e.userID == myID} )
+    y = y["subjects"].map(function(e,i){
+        return e.toString() + y["numbers"][i].toString()  
         })
+
     var score = 0
     var totalunits = 0
     var units = 0
-    for(i=0;i<x.length;i++){
+    for(k=0;k<x.length;k++){
         // check if 1 unit
-        if (x[i].includes("XT") || x[i] == "SOR"){
+        if (x[k].includes("XT") || x[k] == "SOR"){
             units = 1
         }else{
             units = 2
         }
         
-        if (x[i] == y[i] ){
+        if (x[k] == y[k] ){
             score += units
         }
         totalunits += units
@@ -32,14 +36,14 @@ function changeID(id){
 
 
 $(document).ready( async function () {
-  var data = await $.getJSON('/api');
-  console.log(data)
+  var userdata = await $.getJSON('/api');
+  console.log(userdata)
 
 
 
   var usertable = $('#table_id').DataTable();
-  for(i=0;i<data.length;i++){
-    let t = data[i] 
+  for(i=0;i<userdata.length;i++){
+    let t = userdata[i] 
     let rowdata = []
     rowdata.push(t["userID"])
     rowdata.push(t["name"])
@@ -52,7 +56,7 @@ $(document).ready( async function () {
     })
 
     rowdata = rowdata.concat(subject_totals)
-    rowdata.push(similarity(subject_totals))
+    rowdata.push(similarity(subject_totals,userdata))
     usertable.row.add( rowdata ).draw( false );
   }
 
