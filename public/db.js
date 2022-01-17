@@ -105,7 +105,7 @@ $(document).ready( async function () {
         var data = this.data();
         if(y.includes(data)){
             // console.log([data])
-            $(this.nodes()).css({'color':'red'})
+            $(this.nodes()).css({'color':'red',"font-weight": "bold"})
         }
 
         // ... do something with data(), or this.node(), etc
