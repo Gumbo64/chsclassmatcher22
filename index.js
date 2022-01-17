@@ -74,6 +74,8 @@ app.post('/', async (req, res) => {
             console.log(entry)
             const result = await statesDB.insertOne(entry);
         });
+    }else{
+        res.send("u did it wrong")
     }
     res.cookie("id",user.id)
     res.render('pages/db')
@@ -89,6 +91,25 @@ function subjectcheck(e){
             return false
         }
     }
+    let units = 0
+    let totalunits = 0
+    for(k=0;k<e.length;k++){
+        // check if 1 unit
+        if (e[k].includes("XT") || e[k].includes("SOR") || e[k].includes("ACCMAX")){
+            units = 1
+        }
+        else if (e[k]==""){
+            units=0
+        }
+        else{
+            units = 2
+        }
+        
+        totalunits += units
+    }
+    if(totalunits != 11 && totalunits != 12){
+        return false
+    }
     return true
 }
 function numbercheck(e){
@@ -102,6 +123,6 @@ function numbercheck(e){
     }
     return true
 }
-  
+
  
 app.listen(PORT)
