@@ -107,7 +107,7 @@ function subjectcheck(e){
         
         totalunits += units
     }
-    if(totalunits != 11 && totalunits != 12){
+    if(totalunits != 12 && totalunits != 13){
         return false
     }
     return true
