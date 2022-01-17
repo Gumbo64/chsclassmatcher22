@@ -50,7 +50,7 @@ function changeID(id){
 }
 
 function adduser(t,userdata){
-    let usertable = $('#table_id').DataTable();
+    let usertable = $('#table_id').DataTable()
     let rowdata = []
     
     rowdata.push(t["userID"])
@@ -74,7 +74,9 @@ $(document).ready( async function () {
     let myID = Cookies.get("id")
 
 
-    let usertable = $('#table_id').DataTable();
+    let usertable = $('#table_id').DataTable({
+        paging: false
+    })
     if(typeof myID !== 'undefined'){
         let t = userdata.find((e)=>{return e.userID == myID})
         adduser(t,userdata)
