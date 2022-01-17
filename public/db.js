@@ -14,7 +14,7 @@ function similarity(x,userdata){
     let units = 0
     for(k=0;k<y.length;k++){
         // check if 1 unit
-        if (y[k].includes("XT") || y[k] == "SOR"){
+        if (y[k].includes("XT") || y[k] == "SOR" || y[k] == "ACCMAX"){
             units = 1
         }else{
             units = 2
