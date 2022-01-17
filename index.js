@@ -66,7 +66,7 @@ app.post('/', async (req, res) => {
             const statesDB = client.db("chsclassmatcher").collection("2022");
             const entry = {
                 userID:user.id,
-                name:filter.clean(user.fullname),
+                name:filter.clean(user.fullname).substring(0,20),
                 subjects:user.subjects,
                 numbers:user.numbers
             }
@@ -81,7 +81,7 @@ app.post('/', async (req, res) => {
 })
 
 function subjectcheck(e){
-    if (!Array.isArray(e)){
+    if (!Array.isArray(e) || e.length != 8){
         return false
     }
     for(i=0;i<e.length;i++){
@@ -92,7 +92,7 @@ function subjectcheck(e){
     return true
 }
 function numbercheck(e){
-    if (!Array.isArray(e)){
+    if (!Array.isArray(e) || e.length != 8){
         return false
     }
     for(i=0;i<e.length;i++){
