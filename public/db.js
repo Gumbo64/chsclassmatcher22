@@ -14,9 +14,13 @@ function similarity(x,userdata){
     let units = 0
     for(k=0;k<y.length;k++){
         // check if 1 unit
-        if (y[k].includes("XT") || y[k] == "SOR" || y[k] == "ACCMAX"){
+        if (y[k].includes("XT") || y[k].includes("SOR") || y[k].includes("ACCMAX")){
             units = 1
-        }else{
+        }
+        else if (y[k]==""){
+            units=0
+        }
+        else{
             units = 2
         }
         
@@ -24,9 +28,8 @@ function similarity(x,userdata){
             score += units
         }
         totalunits += units
-
     }
-    return score*100/totalunits
+    return Math.round(score*100/totalunits)
 }
 
 function displayID(userdata){
@@ -76,7 +79,6 @@ $(document).ready( async function () {
         let t = userdata.find((e)=>{return e.userID == myID})
         adduser(t,userdata)
     }
-    $("userrow").addClass( 'highlight' );
     for(i=0;i<userdata.length;i++){
         let t = userdata[i]
         if (typeof myID !== 'undefined' && userdata[i].userID == myID){
@@ -91,6 +93,23 @@ $(document).ready( async function () {
             var rowIdx = usertable.cell(this).index().row;
             changeID(usertable.row(rowIdx).data()[0])
         } );
+    
+
+    let y = userdata.find((e)=>{return e.userID == myID} )
+    $('#showlogin').text("Logged in as: " + y.name + " ("+y.userID+")")
+    y = y["subjects"].map(function(e,i){
+        return e.toString() + y["numbers"][i].toString()  
+    })
+    
+    usertable.cells().every( function () {
+        var data = this.data();
+        if(y.includes(data)){
+            // console.log([data])
+            $(this.nodes()).css({'color':'red'})
+        }
+
+        // ... do something with data(), or this.node(), etc
+    } );
     
 
 

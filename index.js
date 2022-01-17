@@ -28,7 +28,7 @@ const validsubjects = [
     'PHY',  'SAC',   'SDD',    'SOR',
     'VIS'
   ]
-const validnumbers = ["","1","2","3","4","5","6","6A","6B","7","8","9"]
+const validnumbers = ["","1","2","3","4","5","6","6A","6B","6C","7","8","9"]
 
 
 async function get_db(){
