@@ -2,14 +2,17 @@
 
 <!-- this code creates one subject input and its label  -->
 <div class=" mb-3 mx-auto normalwidth" >   
-    <label class='form-label p-2' for="subjects">Line <%- num %></label><br>
+
     <div class="input-group">
       <select class='form-control p-2 col-md-6' name="subjects">
-        <option value="none"></option>
         <% for(var i=0; i<subjects.length; i++) {%>
             <option value="<%= subjects[i] %>"><%= subjects[i] %></option>
          <% } %>
       </select>
-      <input class='form-control p-2 col-md-6 smaller' type="number" value=0 name="numbers" min=0 max=9>
+      <select class='form-control p-2 col-md-6 smaller' name="numbers">
+        <% for(var i=0; i<numbers.length; i++) {%>
+            <option value="<%= numbers[i] %>"><%= numbers[i] %></option>
+         <% } %>
+      </select>
     </div>
   </div>

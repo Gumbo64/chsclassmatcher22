@@ -14,20 +14,22 @@
 <div class='d-grid gap-3'>
   <br>
   <h1 class='text-center '>CHS 2022 Class Matcher</h1>
-  <p class='text-center '>Enter both the class and its number</p>
+  <p class='text-center '>Enter both the class and its number<br>Leave subject or number empty if needed, ignore order</p>
+
   <form method="POST" action="/">
     <div class="mb-3 mx-auto normalwidth" >
       <label for="fullname" class='form-label p-2'>Name</label><br>
       <input type="text" class='form-control p-2' name="fullname" />
     </div>
 
-    <%-include("../partials/line_input", {num:"1",subjects:subjects}) %>
-    <%-include("../partials/line_input", {num:"2",subjects:subjects}) %>
-    <%-include("../partials/line_input", {num:"3",subjects:subjects}) %>
-    <%-include("../partials/line_input", {num:"4",subjects:subjects}) %>
-    <%-include("../partials/line_input", {num:"5",subjects:subjects}) %>
-    <%-include("../partials/line_input", {num:"6a",subjects:subjects}) %>
-    <%-include("../partials/line_input", {num:"6b",subjects:subjects}) %>
+    <%-include("../partials/line_input") %>
+    <%-include("../partials/line_input") %>
+    <%-include("../partials/line_input") %>
+    <%-include("../partials/line_input") %>
+    <%-include("../partials/line_input") %>
+    <%-include("../partials/line_input") %>
+    <%-include("../partials/line_input") %>
+    <%-include("../partials/line_input") %>
 
 
     <div class="mb-3 mx-auto buttonwidth" >

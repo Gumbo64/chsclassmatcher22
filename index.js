@@ -18,8 +18,18 @@ const uri = "mongodb+srv://heroku:" + password + "@chsclassmatcher.mpdh6.mongodb
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
-const validsubjects = ["ANC","BIO","BUS","CHE","D+T","ECO","ENG","ENN","EXT","FRE","GEO","INV","JAP","LEG","MAA","MAS","MOD","MUS1","MUS2","MXT","PDHPE","PHY","SAC","SDD","SOR","VIS"]
-const validnumbers = [0,1,2,3,4,5,6,7,8,9]
+const validsubjects = [
+    '',     'ACCMA', 'ACCMAX', 'ANC',
+    'BIO',  'BUS',   'CHE',    'D+T',
+    'ECO',  'ENG',   'ENN',    'EXT',
+    'FRE',  'GEO',   'INV',    'JAP',
+    'LEG',  'MAA',   'MAS',    'MOD',
+    'MUS1', 'MUS2',  'MXT.1',  'PDHPE',
+    'PHY',  'SAC',   'SDD',    'SOR',
+    'VIS'
+  ]
+const validnumbers = ["","1","2","3","4","5","6","6A","6B","7","8","9"]
+
 
 async function get_db(){
     await client.connect()
@@ -41,7 +51,7 @@ app.use(express.urlencoded({extended: true}))
     .use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
     .set('views', __dirname)
     .set('view engine', 'ejs')
-    .get('/', (req, res) => res.render('pages/home',{subjects:validsubjects}))
+    .get('/', (req, res) => res.render('pages/home',{subjects:validsubjects,numbers:validnumbers}))
     .get('/api', async (req, res)  => res.send(await get_db()))
     .get('/db', (req, res) => res.render('pages/db'))
 
@@ -52,7 +62,6 @@ app.post('/', async (req, res) => {
     console.log(subjectcheck(user.subjects))
     console.log(numbercheck(user.numbers))
     if (subjectcheck(user.subjects) && numbercheck(user.numbers)){
-        console.log("a")
         await client.connect(async err => {
             const statesDB = client.db("chsclassmatcher").collection("2022");
             const entry = {
@@ -87,7 +96,7 @@ function numbercheck(e){
         return false
     }
     for(i=0;i<e.length;i++){
-        if (!validnumbers.includes(parseInt(e[i]))){
+        if (!validnumbers.includes(e[i])){
             return false
         }
     }
