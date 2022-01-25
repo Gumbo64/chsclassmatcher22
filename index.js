@@ -91,25 +91,28 @@ function subjectcheck(e){
             return false
         }
     }
-    let units = 0
-    let totalunits = 0
-    for(k=0;k<e.length;k++){
-        // check if 1 unit
-        if (e[k].includes("XT") || e[k].includes("SOR") || e[k].includes("ACCMAX")){
-            units = 1
-        }
-        else if (e[k]==""){
-            units=0
-        }
-        else{
-            units = 2
-        }
+
+    // check unit count
         
-        totalunits += units
-    }
-    if(totalunits != 12 && totalunits != 13){
-        return false
-    }
+    // let units = 0
+    // let totalunits = 0
+    // for(k=0;k<e.length;k++){
+    //     // check if 1 unit
+    //     if (e[k].includes("XT") || e[k].includes("SOR") || e[k].includes("ACCMAX")){
+    //         units = 1
+    //     }
+    //     else if (e[k]==""){
+    //         units=0
+    //     }
+    //     else{
+    //         units = 2
+    //     }
+        
+    //     totalunits += units
+    // }
+    // if(totalunits != 12 && totalunits != 13){
+    //     return false
+    // }
     return true
 }
 function numbercheck(e){
