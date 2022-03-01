@@ -12,5 +12,33 @@ Since I pretty much made the same thing last year I decided to also make visuali
 4. Apply KMeans clustering for nice colouring
 5. Put the names next to the dots
 
-### Graphs
+What this algorithm does is place similar people close together, will explain below.
 
+### Graphs
+AMM - Accelerated Math Mixing
+ACC - Accuracy (how much of the data is conserved when squished down to the 2D graph)
+Classes/Subjects - Similarity of individual classes the school places them in vs similarity of chosen subjects
+
+Colours are chosen by the algorithm when generated so blue may mean something different in each graph
+
+1. This graph places people with similar **classes** together, but not subjects. This means it is somewhat random but may show people who see each other more often close together
+
+![](https://raw.githubusercontent.com/Gumbo64/chsclassmatcher22/main/visualisation/2022%20classes%20ACC%3A22%25.svg)
+
+2. This graph puts people with similar **subject choices** together, meaning that it will be more related to people's subject preferences eg blue has mostly people with almost only math and science, yellow are social science people, green has tech/music people, and red has the people in accelerated math. The reason why accelerated math specifically is so segregated is because accelerated math is considered a different subject in this graph and acc. math takes up 3 units out of 12 so everyone in that class shares 25% already combined with the tendency to do other STEM related subjects as well. 
+
+![](https://raw.githubusercontent.com/Gumbo64/chsclassmatcher22/main/visualisation/2022%20subjects%20AMM%3AFalse%20ACC%3A59%25.svg)
+
+3. This graph is the same as 2 except accelerated maths is treated the same as extension 1 math, so that class is mixed in with everyone else.  
+
+![](https://raw.githubusercontent.com/Gumbo64/chsclassmatcher22/main/visualisation/2022%20subjects%20AMM%3ATrue%20ACC%3A57%25.svg)
+
+
+
+
+
+      
+    
+
+      
+    
