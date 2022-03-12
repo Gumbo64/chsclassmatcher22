@@ -1,6 +1,7 @@
 # Class matcher 2022
 
-Used by students to enter and compare their subject choices and classes with other students.
+This is a website used by students to enter and compare their subject choices and classes with other students.
+Check it out ![here](https://chsclassmatcher22.herokuapp.com/) it should explain itself for the most part
 
 
 ## Visualisation
