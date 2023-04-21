@@ -9,7 +9,7 @@ Unfortunately heroku isn't free anymore so the data got deleted, here's what it 
 ![](https://raw.githubusercontent.com/Gumbo64/chsclassmatcher22/main/readme_images/home_class.png)
 
 This is the only 2 pictures i have of the main table with data in it that i combined from my instagram sorry lol
-The red subjects are the subjects shared with the selected user, and you could select a user by clicking their name on the table or if you just submitted data that would be your selected user. You could also sort by all the fields in the table or use the search bar in the corner. I used https://datatables.net/ so you can try it there, very fun to play around with.
+The red subjects are the subjects shared with the selected user, and you could select a user by clicking their name on the table or if you just submitted data that would be your selected user. You could also sort by all the fields in the table or use the search bar in the corner. I used https://datatables.net/ so you can try it there, very fun to play around with. This had about 70 users at its peak, about half the grade which is pretty insane
 ![](https://raw.githubusercontent.com/Gumbo64/chsclassmatcher22/main/readme_images/table.png)
 
 
